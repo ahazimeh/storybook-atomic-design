@@ -49,7 +49,9 @@ const buttonClicked = (e) => {
   alert("hello");
 };
 
-export const bassicButton = () => <Button>Basic button</Button>;
+export const bassicButton = () => (
+  <Button variant="secondary">Basic button</Button>
+);
 export const functionButton = () => (
   <Button onClick={buttonClicked}>Function button</Button>
 );

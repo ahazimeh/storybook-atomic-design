@@ -1,66 +1,34 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import './button.css';
-
-// /**
-//  * Primary UI component for user interaction
-//  */
-// export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-//   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-//   return (
-//     <button
-//       type="button"
-//       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-//       style={backgroundColor && { backgroundColor }}
-//       {...props}
-//     >
-//       {label}
-//     </button>
-//   );
-// };
-
-// Button.propTypes = {
-//   /**
-//    * Is this the principal call to action on the page?
-//    */
-//   primary: PropTypes.bool,
-//   /**
-//    * What background color to use
-//    */
-//   backgroundColor: PropTypes.string,
-//   /**
-//    * How large should the button be?
-//    */
-//   size: PropTypes.oneOf(['small', 'medium', 'large']),
-//   /**
-//    * Button contents
-//    */
-//   label: PropTypes.string.isRequired,
-//   /**
-//    * Optional click handler
-//    */
-//   onClick: PropTypes.func,
-// };
-
-// Button.defaultProps = {
-//   backgroundColor: null,
-//   primary: false,
-//   size: 'medium',
-//   onClick: undefined,
-// };
-
 import React from "react";
 import { func, node, string } from "prop-types";
 
-const Button = ({ children, href, onClick }) => {
-  if (!href) return <button onClick={onClick}>{children}</button>;
-  return <a href={href}>{children}</a>;
+import StyledButton, { StyledLinkButton } from "./button.styles";
+
+const Button = ({ children, href, onClick, variant }) => {
+  if (!href)
+    return (
+      <StyledButton onClick={onClick} variant={variant}>
+        {children}
+      </StyledButton>
+    );
+  return (
+    <StyledLinkButton href={href} variant={variant}>
+      {children}
+    </StyledLinkButton>
+  );
 };
 
-Button.prototype = {
+// Expected prop values
+Button.propTypes = {
   children: node.isRequired,
   href: string,
   onClick: func,
+  variant: string,
+};
+
+// Default prop values
+Button.defaultProps = {
+  children: "Button text",
+  variant: "primary",
 };
 
 export default Button;
