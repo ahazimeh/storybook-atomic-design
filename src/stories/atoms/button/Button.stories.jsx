@@ -44,17 +44,16 @@ import { action } from "@storybook/addon-actions";
 
 import Button from "./Button";
 
-export const text = () => (
-  <Button onClick={action("clicked")}>Just a Button</Button>
-);
+const buttonClicked = (e) => {
+  e.preventDefault();
+  alert("hello");
+};
 
-export const emoji = () => (
-  <Button onClick={action("clicked")}>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
-  </Button>
+export const bassicButton = () => <Button>Basic button</Button>;
+export const functionButton = () => (
+  <Button onClick={buttonClicked}>Function button</Button>
 );
+export const linkedButton = () => <Button href="/route">Linked button</Button>;
 
 export default {
   component: Button,
