@@ -48,14 +48,41 @@ const buttonClicked = (e) => {
   e.preventDefault();
   alert("hello");
 };
-export const basicButton = () => <Button>Basic button</Button>;
+
+const label = "Icon";
+const options = {
+  bag: "bag",
+  cart: "cart",
+  plus: "plus",
+  user: "user",
+  x: "x",
+};
+
+const defaultValue = "bag";
+const groupId = "Images";
+
+export const basicButton = (args) => <Button {...args} />;
+basicButton.args = { children: "Basic button" };
 export const secondaryButton = () => (
   <Button variant="secondary">Secondary button</Button>
 );
 export const tertiaryButton = () => (
   <Button variant="tertiary">Tertiary button</Button>
 );
-export const iconButton = () => <Button icon="user">Icon button</Button>;
+export const iconButton = {
+  component: (args) => <Button {...args}></Button>,
+  argTypes: {
+    icon: {
+      options: options,
+      control: { type: "select" },
+      groupId: "images",
+      defaultValue: "bag",
+    },
+    children: {
+      defaultValue: "Icon button",
+    },
+  },
+};
 export const functionButton = () => (
   <Button onClick={buttonClicked}>Function button</Button>
 );
