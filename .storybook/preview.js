@@ -8,6 +8,8 @@
 //   },
 // };
 
+import { DocsContainer, DocsPage } from "@storybook/addon-docs";
+import { addParameters } from "@storybook/react";
 import React from "react";
 
 import { ThemeProvider } from "styled-components";
@@ -22,3 +24,11 @@ export const decorators = [
     </ThemeProvider>
   ),
 ];
+
+// addon-docs
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+});
