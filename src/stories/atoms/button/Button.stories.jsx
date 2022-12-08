@@ -89,8 +89,6 @@ export const functionButton = () => (
 );
 export const linkedButton = () => <Button href="/route">Linked button</Button>;
 
-export const myStory = () => <Button>Hello, World!</Button>;
-
 basicButton.parameters = {
   design: {
     type: "figma",
