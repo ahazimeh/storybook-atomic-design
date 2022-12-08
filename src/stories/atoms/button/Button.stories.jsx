@@ -43,6 +43,7 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 
 import Button from "./Button";
+import { withDesign } from "storybook-addon-designs";
 
 const buttonClicked = (e) => {
   e.preventDefault();
@@ -88,9 +89,19 @@ export const functionButton = () => (
 );
 export const linkedButton = () => <Button href="/route">Linked button</Button>;
 
+export const myStory = () => <Button>Hello, World!</Button>;
+
+basicButton.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/uihfnI2u5KSj2LuAVZR7lt/Celtic-Elements?node-id=954%3A426",
+  },
+};
+
 export default {
   component: Button,
   title: "Button",
+  decorators: [withDesign],
   // decorators: [
   //   (Story) => (
   //     <div style={{ margin: "3em" }}>

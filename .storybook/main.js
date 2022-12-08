@@ -13,6 +13,7 @@ module.exports = {
         transcludeMarkdown: true,
       },
     },
+    "storybook-addon-designs",
   ],
   webpackFinal: async (config, { configType }) => {
     const assetRule = config.module.rules.find(({ test }) => test.test(".svg"));
