@@ -59,4 +59,11 @@ export const emoji = () => (
 export default {
   component: Button,
   title: "Button",
+  // decorators: [
+  //   (Story) => (
+  //     <div style={{ margin: "3em" }}>
+  //       <Story />
+  //     </div>
+  //   ),
+  // ],
 };
