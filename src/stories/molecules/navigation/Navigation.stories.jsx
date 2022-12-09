@@ -42,63 +42,84 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 
-import Button from "./Button";
+import Navigation from "./Navigation";
 import { withDesign } from "storybook-addon-designs";
-
-const buttonClicked = (e) => {
-  e.preventDefault();
-  alert("hello");
-};
 
 const label = "Icon";
 const options = {
-  bag: "bag",
-  cart: "cart",
-  plus: "plus",
-  user: "user",
-  x: "x",
+  vertical: "vertical",
+  horizontal: "horizontal",
 };
 
 const defaultValue = "bag";
 const groupId = "Images";
 
-export const basicButton = (args) => <Button {...args} />;
-basicButton.args = { children: "Basic button" };
-export const secondaryButton = () => (
-  <Button variant="secondary">Secondary button</Button>
-);
-export const tertiaryButton = () => (
-  <Button variant="tertiary">Tertiary button</Button>
-);
-export const iconButton = {
-  component: (args) => <Button {...args}></Button>,
+export const horizontalNavigation = {
+  component: (args) => <Navigation {...args} />,
+
   argTypes: {
-    icon: {
+    direction: {
       options: options,
       control: { type: "select" },
       groupId: "images",
-      defaultValue: "bag",
+      defaultValue: "horizontal",
     },
-    children: {
-      defaultValue: "Icon button",
+    items: {
+      groupId: "images",
+      defaultValue: [
+        { title: "Home", url: "/" },
+        {
+          title: "About us",
+          url: "/about",
+        },
+        {
+          title: "Contact",
+          url: "/contact",
+        },
+      ],
     },
   },
 };
-export const functionButton = () => (
-  <Button onClick={buttonClicked}>Function button</Button>
-);
-export const linkedButton = () => <Button href="/route">Linked button</Button>;
 
-basicButton.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/uihfnI2u5KSj2LuAVZR7lt/Celtic-Elements?node-id=954%3A426",
+export const verticalNavigation = {
+  component: (args) => <Navigation {...args} />,
+
+  argTypes: {
+    direction: {
+      options: options,
+      control: { type: "select" },
+      groupId: "images",
+      defaultValue: "vertical",
+    },
+    items: {
+      groupId: "images",
+      defaultValue: [
+        { title: "Home", url: "/" },
+        {
+          title: "About us",
+          url: "/about",
+        },
+        {
+          title: "Contact",
+          url: "/contact",
+        },
+      ],
+    },
   },
 };
+// export const basicButton = (args) => <Navigation {...args} />;
+// basicButton.args = { children: "Basic button" };
+
+// basicButton.parameters = {
+//   design: {
+//     type: "figma",
+//     url: "https://www.figma.com/file/uihfnI2u5KSj2LuAVZR7lt/Celtic-Elements?node-id=954%3A426",
+//   },
+// };
 
 export default {
-  component: Button,
-  title: "Atoms/Button",
+  component: Navigation,
+  title: "Molecules/Navigation",
   decorators: [withDesign],
   // decorators: [
   //   (Story) => (
