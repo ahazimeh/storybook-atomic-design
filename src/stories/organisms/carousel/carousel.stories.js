@@ -1,25 +1,25 @@
 import React from "react";
-// import { array, object, text } from "@storybook/addon-knobs";
+// import { array, object, text } from "@storybook/addon-knobs"
 import { withDesign } from "storybook-addon-designs";
-import Related from "./related";
+import Carousel from "./carousel";
 
-// import knobData from "./related.knobs.json";
-// const { items, intro } = knobData;
+// import knobData from "./carousel.knobs.json"
+// const { items, intro } = knobData
 
-export const postsRelated = {
-  component: (args) => <Related {...args} />,
+export const productCarousel = {
+  component: (args) => <Carousel {...args} />,
   argTypes: {
     intro: {
       defaultValue: {
         cta: {
-          href: "/posts",
-          label: "View all posts",
+          href: "/shop",
+          label: "View all products",
           target: null,
         },
-        subtitle: "Related posts",
-        text: "Multi Award Winning Spa Manager Clare Pritchard shares the story of Celtic Elements.",
+        subtitle: "Our products",
 
-        title: "Continue reading our beauty insights",
+        text: "Multi Award Winning Spa Manager Clare Pritchard shares the story of Celtic Elements.",
+        title: "Premium, handcrafted care",
       },
     },
     items: {
@@ -60,31 +60,19 @@ export const postsRelated = {
       ],
     },
   },
-  // intro={{
-  // 	cta: object(intro.cta.label, intro.cta.default, intro.cta.group),
-  // 	subtitle: text(
-  // 		intro.subtitle.label,
-  // 		intro.subtitle.default,
-  // 		intro.subtitle.group
-  // 	),
-  // 	text: text(intro.text.label, intro.text.default, intro.text.group),
-  // 	title: text(intro.title.label, intro.title.default, intro.title.group)
-  // }}
-  // items={array(items.label, items.default, items.group)}
-  // />
 };
 
-postsRelated.story = {
+productCarousel.story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/uihfnI2u5KSj2LuAVZR7lt/Celtic-Elements?node-id=969%3A521",
+      url: "https://www.figma.com/file/uihfnI2u5KSj2LuAVZR7lt/Celtic-Elements?node-id=926%3A992",
     },
   },
 };
 
 export default {
-  component: Related,
+  component: Carousel,
   decorators: [withDesign],
-  title: "Organisms/Related",
+  title: "Organisms/Caoursel",
 };
