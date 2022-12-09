@@ -4,8 +4,6 @@ import { arrayOf, shape, string } from "prop-types";
 import StyledNavigation from "./navigation.styles";
 
 const Navigation = ({ direction, items }) => {
-  console.log("direction", direction);
-  console.log("items", items);
   return (
     <StyledNavigation direction={direction}>
       {items.map((item) => (
