@@ -61,9 +61,18 @@ const options = {
 
 const defaultValue = "bag";
 const groupId = "Images";
-
+const Template = (args) => <Button {...args} />;
 export const basicButton = (args) => <Button {...args} />;
 basicButton.args = { children: "Basic button" };
+export const basicButton1 = Template.bind({});
+basicButton1.args = {
+  children: "q",
+};
+basicButton1.argTypes = {
+  children: {
+    defaultValue: "z",
+  },
+};
 export const secondaryButton = () => (
   <Button variant="secondary">Secondary button</Button>
 );

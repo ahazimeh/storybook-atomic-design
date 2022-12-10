@@ -1,5 +1,5 @@
 import React from "react";
-import { func, node, string } from "prop-types";
+import PropTypes, { func, node, string } from "prop-types";
 
 import StyledButton, { StyledLinkButton } from "./button.styles";
 
@@ -46,6 +46,8 @@ Button.propTypes = {
   icon: string,
   onClick: func,
   variant: string,
+
+  // size: PropTypes.oneOf(["small", "medium", "large"]),
 };
 
 // Default prop values
