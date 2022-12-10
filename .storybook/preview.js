@@ -13,15 +13,18 @@ import { addParameters } from "@storybook/react";
 import React from "react";
 
 import { ThemeProvider } from "styled-components";
+import ApolloWrapper from "../src/stories/particles/apollo/provider";
 import GlobalStyles from "../src/stories/particles/globalStyles";
 import themeDefault from "../src/stories/particles/themeDefault";
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={themeDefault}>
-      <GlobalStyles />
-      <Story />
-    </ThemeProvider>
+    <ApolloWrapper>
+      <ThemeProvider theme={themeDefault}>
+        <GlobalStyles />
+        <Story />
+      </ThemeProvider>
+    </ApolloWrapper>
   ),
 ];
 
